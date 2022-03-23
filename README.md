@@ -7,3 +7,7 @@ https://xr-fukuoka.connpass.com/event/240668/
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220325_ShaderGraph/Sample.zip
 <br>
 zipファイルをデスクトップなどの分かり易い場所に解凍しておいてください。
+<br><br>
+unity2021.2系を使用します<br>
+(資料リンク)
+<br>
