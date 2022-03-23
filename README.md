@@ -8,7 +8,6 @@ https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220325_ShaderGraph/Sam
 <br>
 zipファイルをデスクトップなどの分かり易い場所に解凍しておいてください。
 <br><br>
-unity2021.2系を使用します<br>
-資料リンク:<br>
+unity2021.2系を使用します(資料リンク)<br>
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220325_ShaderGraph/preparation2022.pdf
 <br>
