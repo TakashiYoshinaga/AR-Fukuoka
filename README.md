@@ -1,6 +1,7 @@
 # AR-Fukuokaハンズオン関連リポジトリ
 <br>
-## はじめようShaderGraph  (2022/03/25開催)
+## はじめようShaderGraph 
+https://xr-fukuoka.connpass.com/event/240668/
 ### ハンズオン素材のダウンロード
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220325_ShaderGraph/Sample.zip
 <br>
