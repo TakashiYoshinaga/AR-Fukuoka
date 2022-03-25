@@ -10,4 +10,8 @@ zipファイルをデスクトップなどの分かり易い場所に解凍し�
 <br><br>
 unity2021.2系を使用します(資料リンク)<br>
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220325_ShaderGraph/preparation2022.pdf
+<br><br>
+ビデオ編集便利ツール: clipchamp<br>
+https://clipchamp.com/en/
 <br>
+
