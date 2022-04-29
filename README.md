@@ -12,4 +12,7 @@ unity2020.3系を使用します(資料リンク)<br>
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220429_Nreal3DoF/nreal_preparation2022.pdf
 <br>
 <br>
-
+ハンズオンの完成品(Scriptの書き方が少し違うので要注意)<br>
+https://github.com/TakashiYoshinaga/NrealSampleScenes
+<br>
+<br>
