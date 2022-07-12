@@ -1,18 +1,12 @@
 # AR-Fukuokaハンズオン関連リポジトリ
-## はじめようShaderGraph 
-イベントページ<br>
-https://xr-fukuoka.connpass.com/event/244215/
-<br><br>
+## お手軽Web AR/VR開発入門 
+<br>
 ハンズオン素材のダウンロード<br>
-https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220429_Nreal3DoF/Samples.zip
+https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/ARjs-20220713/sample.zip
 <br>
 zipファイルをデスクトップなどの分かり易い場所に解凍しておいてください。
-<br><br>
-unity2020.3系を使用します(資料リンク)<br>
-https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/20220429_Nreal3DoF/nreal_preparation2022.pdf
 <br>
-<br>
-ハンズオンの完成品(Scriptの書き方が少し違うので要注意)<br>
-https://github.com/TakashiYoshinaga/NrealSampleScenes
+Glitch<br>
+https://glitch.com/
 <br>
 <br>
