@@ -1,0 +1,20 @@
+//function addObjects(){  と }の間、最後の行にに下記を追加
+
+        //バウンディングボックスを用いた操作
+        var gizmoManager = new BABYLON.GizmoManager(scene);
+        gizmoManager.boundingBoxGizmoEnabled = true;
+        gizmoManager.boundingBoxDragBehavior.allowMultiPointer=false;
+        //スケーリング設定(スケーリングの許可,等倍スケーリング)
+        gizmoManager.gizmos.boundingBoxGizmo.setEnabledScaling(true,true);
+        //見た目の設定   
+        gizmoManager.gizmos.boundingBoxGizmo.scaleBoxSize=0.04;
+        gizmoManager.gizmos.boundingBoxGizmo.rotationSphereSize=0.05; 
+        //八面体オブジェクトにアタッチ
+        gizmoManager.attachableMeshes = [octa];
+
+
+
+
+
+
+

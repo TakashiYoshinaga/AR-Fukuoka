@@ -1,0 +1,8 @@
+//window.onload = function() { と }の間、createScene();の直下に下記を追加
+
+
+        //描画オブジェクトの作成
+        addObjects();
+
+
+

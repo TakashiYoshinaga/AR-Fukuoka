@@ -1,0 +1,6 @@
+//window.onload = function()の直前に下記を追加
+
+
+      let canvas; //canvas要素 (描画領域)
+      let engine; //Babylon.jsによる描画機能
+      let scene; //仮想3D空間

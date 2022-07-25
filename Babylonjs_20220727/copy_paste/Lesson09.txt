@@ -1,0 +1,15 @@
+//追加① window.onload = function() { と }の間、addObjects()の直下に下記を追加
+
+        //XRモードの初期化
+        initializeXR();
+
+
+
+//追加② async function initializeXR() { と }の間に下記を追加
+
+        let xr = await scene.createDefaultXRExperienceAsync({});
+
+
+
+
+
