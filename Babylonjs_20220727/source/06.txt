@@ -27,7 +27,7 @@
         //3D空間を作成
         scene = new BABYLON.Scene(engine);
         //背景色を設定
-        scene.clearColor = new BABYLON.Color3.Black;
+        scene.clearColor = new BABYLON.Color3.Black();
         //Lightを設定 (引数：名前,反射の方向,追加先)
         let light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, -0.5),scene);
         //カメラを作成(引数：名前, alpha, beta, 注視点からの距離, 注視点,追加先) 
