@@ -6,15 +6,15 @@
     <script type="text/javascript">
       let canvas; //canvas要素 (描画領域)
       let engine; //Babylon.jsによる描画機能
-      let scene; //仮想3D空間
+      let scene; //仮想3D空間      
       //ページの読み込み終了後に各種初期化を行う
       window.onload = function() {
         //描画領域(canvas要素)をHTMLから取得
         canvas = document.getElementById("renderCanvas");
         //Babylon.jsを使ってcanvasに描画する準備 (引数：描画先,アンチエイリアス)
-        engine = new BABYLON.Engine(canvas, true);  
+        engine = new BABYLON.Engine(canvas, true);    
         //カメラやライトの設定を行ったscene(3D空間)を作成
-        createScene();
+        createScene();        
       }
       //3D空間の初期化
       function createScene() {

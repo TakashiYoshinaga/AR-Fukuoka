@@ -2,7 +2,7 @@
 
         //boxに手で掴んで移動できる属性を追加
         let sixDofDragBehavior = new BABYLON.SixDofDragBehavior();
-        //片手での操作のみ受け付ける(両手でのスケールでの挙動がおかしいため)
+        //片手での操作のみ受け付ける(両手でのスケール操作の挙動がおかしいため)
         sixDofDragBehavior.allowMultiPointer=false;
         //離れた位置からポインターで操作する場合は位置のみ追従
         sixDofDragBehavior.rotateWithMotionController=false;

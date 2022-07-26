@@ -7,9 +7,11 @@
         let box = BABYLON.MeshBuilder.CreateBox("box", {width: 0.3, height: 0.3, depth: 0.3});
         box.position.x = 0.0;
         box.position.y = 1;
-        //箱の色をランダムに設定
+        //マテリアルを作成
         let boxMaterial = new BABYLON.StandardMaterial("material");
+        //箱の色を設定(今回はランダム)
         boxMaterial.diffuseColor = BABYLON.Color3.Random();
+        //作ったマテリアルをboxに適用
         box.material = boxMaterial;  
         //8面体を作成
         let octa = BABYLON.MeshBuilder.CreatePolyhedron("octa", {type:1,size: 0.15}); 
