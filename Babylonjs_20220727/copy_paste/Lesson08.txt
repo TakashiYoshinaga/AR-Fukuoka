@@ -8,11 +8,11 @@
         box.position.x = 0.0;
         box.position.y = 1;
         //箱の色をランダムに設定
-        let boxMaterial = new BABYLON.StandardMaterial("material", scene);
+        let boxMaterial = new BABYLON.StandardMaterial("material");
         boxMaterial.diffuseColor = BABYLON.Color3.Random();
         box.material = boxMaterial;  
         //8面体を作成
-        let octa = BABYLON.MeshBuilder.CreatePolyhedron("octa", {type:1,size: 0.15}, scene); 
+        let octa = BABYLON.MeshBuilder.CreatePolyhedron("octa", {type:1,size: 0.15}); 
         octa.position.x=0.5;
         octa.position.y=1;
 
