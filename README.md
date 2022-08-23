@@ -1,5 +1,5 @@
 # AR-Fukuokaハンズオン関連リポジトリ
-## 2022/07/27 お手軽Web AR/VR開発入門 
+## 2022/08/24 Babylon.js入門 
 ### ハンズオン素材のダウンロード
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/Babylonjs_20220727/Samples.zip
 <br>
