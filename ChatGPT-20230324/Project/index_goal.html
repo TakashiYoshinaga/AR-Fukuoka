@@ -60,10 +60,10 @@
       }
       //ChatGPTからの回答からA-Frameの要素を抽出
       function CreateElements(text){
-        //結果を表示する準備
-        outputText.value+="[処理結果]\n";
         //textからA-Frameの要素を抽出
         let generatedElements = FindAframeElements(text);
+        //結果を表示する準備
+        outputText.value+="[処理結果]\n";
         //generatedElementsが空でなければcontainerに各要素を追加
         if(generatedElements.length>0){
           //containerから子要素を削除
