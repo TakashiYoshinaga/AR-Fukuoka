@@ -36,6 +36,7 @@
         });
         //レスポンスを受け取ったら、結果をjsonで取得
         let data = await response.json();
+        //結果をテキストとして覚える変数
         let text;
         //ChatGPTからの回答があればメッセージ履歴に追加
         if(data.choices){
