@@ -24,6 +24,10 @@
         outputText.value="Waiting...";
         //ChatGPTにメッセージを送信
         let result = await SendMessage();
+        /**Lesson03追加-開始**/
+        //ChatGPTからの回答からA-Frameの要素を抽出
+        CreateElements(result);
+        /**Lesson03追加-終了**/
       }
       //ChatGPTにメッセージを送信
       async function SendMessage() {
@@ -45,7 +49,6 @@
         let data = await response.json();
         //結果をテキストとして覚える変数
         let text="このあとこの変数に結果を格納します。";
-        /**Lesson02追加-開始**/
         //ChatGPTからの回答があればメッセージ履歴に追加
         if(data.choices){
           //ChatGPTからの回答をテキストで取得
@@ -53,14 +56,14 @@
         }else{
           text="No Response";
         }
-        /**Lesson02追加-終了**/
         //結果を表示
         outputText.value=(text+"\n\n");
         return text;
       }
       //ChatGPTからの回答からA-Frameの要素を抽出
       function CreateElements(text){
-
+        //textからA-Frameの要素を抽出
+        let generatedElements = FindAframeElements(text);
       }
     </script>
   </head>
