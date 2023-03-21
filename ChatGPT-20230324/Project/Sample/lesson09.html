@@ -13,12 +13,10 @@
         elmContainer = document.getElementById('container');
         //ChatGPTからの回答を表示するテキストエリア
         outputText=document.getElementById('output');
-        /**Lesson08変更-開始**/
         //ChatGPTに送信するメッセージ。system:システムの役割、user:指示
         messageArray=[
           {role: "system", content: "あなたA-Frameバージョン1.3.0以降のPrimitive Elementのタグを教えるアシスタントです。"}
         ];
-        /**Lesson08変更-終了**/
       }
       //ボタンを押した時の挙動
       async function OnClick() {
@@ -29,10 +27,8 @@
         if (!prompt){outputText.value="プロンプトを入力してください"; return};
         //細かい注文を追加
         prompt= prompt+ "\n 上記を実現する<a-scene> </a-scene>内の要素を生成。ただしa-camera,a-assets,a-animationは使用しない。結果はコードブロックに記述。";
-        /**Lesson08変更-開始**/
         //プロンプトをmessageArrayに追加
         messageArray.push({role: "user", content: prompt});
-        /**Lesson08変更-終了**/
         //ChatGPTにメッセージを送信
         let result = await SendMessage();
         //ChatGPTからの回答からA-Frameの要素を抽出
@@ -62,8 +58,20 @@
         if(data.choices){
           //ChatGPTからの回答をテキストで取得
           text=data.choices[0].message.content;
+          /**Lesson09追加-開始**/
+          //ChatGPTからの回答をmessagesArrayに追加
+          messageArray.push({role: "assistant", content: text});
+          //messagesArrayの要素数が9を超えたら、1番目と2番目の要素(0スタート)を削除
+          if(messageArray.length>9){ 
+            messageArray.splice(1,2);
+          }
+          /**Lesson09追加-終了**/       
         }else{
           text="No Response";
+          /**Lesson09追加-開始**/
+          //ChatGPTからの回答がなければ、最後の要素を削除
+          messageArray.pop();
+          /**Lesson09追加-終了**/ 
         }
         //結果を表示
         outputText.value=(text+"\n\n");
