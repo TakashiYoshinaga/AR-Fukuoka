@@ -68,9 +68,14 @@
       function CreateElements(text){
         //textからA-Frameの要素を抽出
         let generatedElements = FindAframeElements(text);
-        /**Lesson05追加-開始**/
         //generatedElementsが空でなければcontainerに各要素を追加
         if(generatedElements.length>0){
+          /**Lesson06追加-開始**/
+           //containerから子要素を削除
+           while (elmContainer.firstChild) {
+            elmContainer.removeChild(elmContainer.firstChild);
+          }
+          /**Lesson06追加-終了**/
           //containerに各要素を追加
           generatedElements.forEach(element => {
             //elementをcontainerに追加
@@ -78,8 +83,7 @@
           });
         }else{
           outputText.value += "[処理結果]\nNo A-Frame primitive element found.\n";
-        } 
-        /**Lesson05追加-終了**/
+        }
       }
     </script>
   </head>
