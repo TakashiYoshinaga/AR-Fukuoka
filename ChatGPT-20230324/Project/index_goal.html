@@ -77,8 +77,6 @@
       function CreateElements(text){
         //textからA-Frameの要素を抽出
         let generatedElements = FindAframeElements(text);
-        //結果を表示する準備
-        outputText.value+="[処理結果]\n";
         //generatedElementsが空でなければcontainerに各要素を追加
         if(generatedElements.length>0){
           //containerから子要素を削除
@@ -89,11 +87,9 @@
           generatedElements.forEach(element => {
             //elementをcontainerに追加
             elmContainer.appendChild(element); 
-            //elementのタグをoutputTextに追加(表示用)
-            outputText.value += element.outerHTML + "\n";
           });
         }else{
-          outputText.value += "No A-Frame primitive element found.\n";
+          outputText.value += "[処理結果]\nNo A-Frame primitive element found.\n";
         } 
       }
     </script>
