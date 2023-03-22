@@ -36,7 +36,7 @@
       }
       //ChatGPTにメッセージを送信
       async function SendMessage() {
-        //promptがある場合はリクエストを送信
+        //リクエストを送信
         let response = await fetch('https://api.openai.com/v1/chat/completions', 
         {
           method: 'POST',
