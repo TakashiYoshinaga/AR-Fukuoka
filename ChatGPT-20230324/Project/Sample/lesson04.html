@@ -26,7 +26,7 @@
         //プロンプトをTexAreaから取得
         let prompt = document.getElementById('input').value;
         //promptがない場合
-        if (!prompt){outputText.value="プロンプトを入力してください"; return};
+        if (!prompt){outputText.value="プロンプトを入力してください"; return;}
         //プロンプトをmessageArrayに追加
         messageArray[1]={role: "user", content: prompt};
         /**Lesson04追加-終了**/

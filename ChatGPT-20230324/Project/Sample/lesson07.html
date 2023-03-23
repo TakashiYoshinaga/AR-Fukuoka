@@ -25,7 +25,7 @@
         //プロンプトをTexAreaから取得
         let prompt = document.getElementById('input').value;
         //promptがない場合
-        if (!prompt){outputText.value="プロンプトを入力してください"; return;};
+        if (!prompt){outputText.value="プロンプトを入力してください"; return;}
         /**Lesson07追加-開始**/
         //細かい注文を追加
         prompt= prompt+ "\n 上記を実現するA-Frameのa-から始まる要素を生成。\nただしa-camera,a-assets,a-animationは使用しない。\n結果はコードブロックに記述。";
