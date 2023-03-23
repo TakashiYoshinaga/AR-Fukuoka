@@ -8,6 +8,7 @@ zipファイルをデスクトップなどの分かり易い場所に解凍し�
 <br><br>
 ■ChatGPT<br>
 https://chat.openai.com/
+<br>
 ■OpenAIの有料アカウント<br>
 https://platform.openai.com/signup
 <br>
