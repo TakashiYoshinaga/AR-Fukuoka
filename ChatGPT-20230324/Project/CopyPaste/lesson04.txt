@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="ElementsExtractor.js"></script>
+    <script type="text/javascript">
+      let API_KEY = '';
+      let elmContainer; //A-Frameのオブジェクトの追加先
+      let outputText;  //ChatGPTからの回答を表示するテキストエリア
+      let messageArray; //ChatGPTとのやりとりを記録する配列。
+      //初期化
+      window.onload=function(){
+        //A-Frameのオブジェクトの追加先
+        elmContainer = document.getElementById('container');
+        //ChatGPTからの回答を表示するテキストエリア
+        outputText=document.getElementById('output');
+        //ChatGPTに送信するメッセージ。system:システムの役割、user:指示
+        messageArray=[
+          {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"},
+          {role: "user", content: "x=0, y=1.5, z=-3の位置に、色が赤、半径が0.5の球を作って。"},
+        ];
+      }
+      //ボタンを押した時の挙動
+      async function OnClick() {
+        outputText.value="Waiting...";
+        /**Lesson04追加-開始**/
+        //プロンプトをTexAreaから取得
+        let prompt = document.getElementById('input').value;
+        //promptがない場合
+        if (!prompt){outputText.value="プロンプトを入力してください"; return;}
+        //プロンプトをmessageArrayに追加
+        messageArray[1]={role: "user", content: prompt};
+        /**Lesson04追加-終了**/
+        //ChatGPTにメッセージを送信
+        let result = await SendMessage();
+        //ChatGPTからの回答からA-Frameの要素を抽出
+        CreateElements(result);     
+      }
+      //ChatGPTにメッセージを送信
+      async function SendMessage() {
+        //リクエストを送信
+        let response = await fetch('https://api.openai.com/v1/chat/completions', 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: messageArray, 
+            temperature:0.3,
+          }),
+        });
+        //レスポンスを受け取ったら、結果をjsonで取得
+        let data = await response.json();
+        //結果をテキストとして覚える変数
+        let text="このあとこの変数に結果を格納します。";
+        //ChatGPTからの回答があればメッセージ履歴に追加
+        if(data.choices){
+          //ChatGPTからの回答をテキストで取得
+          text=data.choices[0].message.content;
+        }else{
+          text="No Response";
+        }
+        //結果を表示
+        outputText.value=(text+"\n\n");
+        return text;
+      }
+      //ChatGPTからの回答からA-Frameの要素を抽出
+      function CreateElements(text){
+        //textからA-Frameの要素を抽出
+        let generatedElements = FindAframeElements(text);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- A-Frameのシーン -->
+    <a-scene>
+      <a-entity id="container"></a-entity>
+    </a-scene>
+    <!-- テキストエリアとボタン -->
+    <div style="position: fixed; top: 20px; left: 20px; width: 35%;">
+      <textarea id="input" style="font-size: 16px; width: 100%; height: 80px;"></textarea>
+      <button onclick="OnClick()" style="display: block; margin: 10px 0; width: 100%; height: 50px;">Submit</button>
+      <textarea id="output" style="font-size: 16px; width: 100%; height: 250px;"></textarea>
+    </div>
+  </body>
+</html>
