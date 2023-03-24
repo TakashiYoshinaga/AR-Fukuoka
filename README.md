@@ -2,7 +2,6 @@
 ## 2023/03/24 ChagGPT API x A-Frame
 ### 素材のダウンロード
 https://github.com/TakashiYoshinaga/AR-Fukuoka/raw/main/ChatGPT-20230324/Project.zip
-
 <br>
 zipファイルをデスクトップなどの分かり易い場所に解凍しておいてください。
 <br><br>
