@@ -1,38 +1,25 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="../ElementsExtractor.js"></script>
+    <script src="ElementsExtractor.js"></script>
     <script type="text/javascript">
       let API_KEY = '';
       let elmContainer;
       let outputText;
       let messageArray;
-      //isEnglish=true: English, false: Japanese
-      const isEnglish = true;
-
+      
       window.onload=function(){
         //Element to add A-Frame object
         elmContainer = document.getElementById('container');
         //Text area to display the answer from ChatGPT
         outputText=document.getElementById('output');
         //Initialize messageArray to be sent to ChatGPT
-        if(isEnglish){
-          //initiliaze messageArray in English
-          messageArray=[
-            {role: "system", content: "You are an assistant that teaches me Primitive Element tags for A-Frame version 1.4.0 and later."}
-          ];
-        }else{
-          //initiliaze messageArray in Japanese
-          messageArray=[
-            {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"}
-          ];
-        }
+        messageArray=[
+          {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"}
+        ];
       }
       //Called when the button is clicked
       async function OnClick() {
-        //Set API Key
-        SetAPIKey();
-        if(!API_KEY){return};
         //Initialize the text area to display the answer from ChatGPT
         outputText.value="Waiting for response...";
         //Get prompt from TextArea
@@ -40,24 +27,13 @@
         //Return if prompt is empty.
         if (!prompt){outputText.value="Enter a prompt"; return};
         //Add options to prompt
-        if(isEnglish){
-          prompt += 
-          `Create an A-Frame element that starts with 'a-' to achieve the prompt above. Please follow these conditions:
-          - Consider the current scene.
-          - Do not use a-camera, a-assets, a-animation, or a-light.
-          - Avoid using scripts.
-          - Instead of the background component, use the a-sky element for background settings.
-          - Please provide the result in a code block.`;
-        }
-        else{
-          prompt+=
+        prompt+=
           `上記を実現するA-Frameのa-から始まる要素を生成。ただし下記の条件を満たすこと。
           - 現在のシーンを踏まえること。
           - a-camera,a-assets,a-animation,a-lightは使用しない。
           - scriptを使用しない。
           - 背景の設定にbackgroundコンポーネントではなくa-sky>を使用。
           - 結果はコードブロックに記述。`;
-        }
         //Add prompt to messageArray to be sent to ChatGPT
         messageArray.push({role: "user", content: prompt});
         //ChatGPTにメッセージを送信
@@ -72,21 +48,7 @@
         //Experimental: Overwriting only the A-Frame scene as the answer from ChatGPT
         messageArray[messageArray.length-1]={role: "assistant", content: "```html\n<a-scene>\n "+elmContainer.innerHTML+"\n </a-scene>\n``` "};       
       }
-      //SET API KEY from TextArea
-      function SetAPIKey(){
-        let apikeyTextArea=document.getElementById('apikey');
-        var key = apikeyTextArea.value;
-        //Trim space and line break
-        key = key.replace(/[\n\r]/g, "");
-        if(key=="Enter Your API Key"||key==""){
-          apikeyTextArea.value="Enter Your API Key";
-          API_KEY="";
-        } else{
-          API_KEY=key;
-          //make apikeytextarea invisible
-          apikeyTextArea.style.display="none";
-        }  
-      }
+      
       //Send message to ChatGPT and get the answer.
       async function SendMessage() {
         //Send message to ChatGPT
