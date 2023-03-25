@@ -1,0 +1,7 @@
+//if(generatedElements.length>0){の直下に下記を追加。
+
+
+           //containerから子要素を削除
+           while (elmContainer.firstChild) {
+            elmContainer.removeChild(elmContainer.firstChild);
+          }

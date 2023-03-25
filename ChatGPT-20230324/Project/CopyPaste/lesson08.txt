@@ -1,0 +1,12 @@
+//作業①：window.onload関数内、mssageArrayの初期化を下記に差し替え
+
+        //ChatGPTに送信するメッセージ。system:システムの役割、user:指示
+        messageArray=[
+          {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"}
+        ];
+
+
+//作業②：OnClick内、messageArray[1]={role: "user", content: prompt};を下記に差し替える。
+
+
+        messageArray.push({role: "user", content: prompt});

@@ -1,0 +1,9 @@
+//下記を outputText.value=(text+"\n\n"); の直前に追加。
+
+        //ChatGPTからの回答があればメッセージ履歴に追加
+        if(data.choices){
+          //ChatGPTからの回答をテキストで取得
+          text=data.choices[0].message.content;
+        }else{
+          text="No Response";
+        }

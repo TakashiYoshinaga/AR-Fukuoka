@@ -1,0 +1,13 @@
+//let generatedElements = FindAframeElements(text);の直下に下記を追加
+
+
+        //generatedElementsが空でなければcontainerに各要素を追加
+        if(generatedElements.length>0){
+          //containerに各要素を追加
+          generatedElements.forEach(element => {
+            //elementをcontainerに追加
+            elmContainer.appendChild(element); 
+          });
+        }else{
+          outputText.value += "[処理結果]\nNo A-Frame primitive element found.\n";
+        } 

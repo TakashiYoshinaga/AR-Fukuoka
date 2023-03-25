@@ -1,0 +1,5 @@
+// let result = await SendMessage();の直下に下記を追加
+
+
+        //ChatGPTからの回答からA-Frameの要素を抽出
+        CreateElements(result);
