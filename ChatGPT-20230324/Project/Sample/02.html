@@ -52,6 +52,16 @@
       let data = await response.json();
       //ChatGPTからの回答を格納する変数
       let result=JSON.stringify(data);
+      /***Lesson2：追加開始***/
+      //ChatGPTからレスポンスがあったかどうかを判定
+      if(data.choices){
+        //ChatGPTからの回答をテキスト形式で取得してresultに格納
+        result=data.choices[0].message.content;
+      }else{
+        //ChatGPTからレスポンスがなかった場合、No Responseと返す。
+        result="No Response";
+      }
+      /***Lesson2：追加終了***/
       return result;
     }
     //ChatGPTからの回答からA-Frameのオブジェクトを抽出して、シーンに追加
