@@ -74,9 +74,21 @@
       if(data.choices){
         //ChatGPTからの回答をテキスト形式で取得してresultに格納
         result=data.choices[0].message.content;
+        /***Lesson9:追加開始***/
+        //ChatGPTからの回答をmessageArrayに追加
+        messageArray.push({role: "assistant", content: result});
+        //messageArrayが9個を超えた場合、最初の2つの要素を削除
+        if(messageArray.length>9){ 
+          messageArray.splice(1,2);
+        }
+        /***Lesson9:追加終了***/
       }else{
         //ChatGPTからレスポンスがなかった場合、No Responseと返す。
         result="No Response";
+        /***Lesson9:追加開始***/
+        //ChatGPTからレスポンスがなかった場合、messageArrayの最後の質問を削除
+        messageArray.pop();
+        /***Lesson9:追加終了***/
       }
       return result;
     }
