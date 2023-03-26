@@ -76,9 +76,14 @@
       let generatedElements = FindAframeElements(text);
       //A-Frameのオブジェクトのタグを文字列化してresultに追加(TextAreaでの表示用)
       let result=generatedElements.map(element => element.outerHTML).join("\n");
-      /***Lesson5: 追加開始***/
       //A-Frameのオブジェクトがある場合はオブジェクトをシーンに追加
       if(generatedElements.length>0){
+        /***Lesson6:追加開始***/
+        //シーンからすべてのオブジェクトを削除
+        while (elmContainer.firstChild) {
+          elmContainer.removeChild(elmContainer.firstChild);
+        }
+        /***Lesson6:追加終了***/
         //A-Frameのオブジェクトを1つずつシーンに追加
         generatedElements.forEach(element => {
           elmContainer.appendChild(element); 
@@ -86,7 +91,6 @@
       }else{
         result = "No A-Frame primitive element found.\n";
       }
-      /***Lesson5: 追加終了***/
       return result;
     }
     </script>
