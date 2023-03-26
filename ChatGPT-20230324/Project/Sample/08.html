@@ -13,11 +13,12 @@
         elmContainer = document.getElementById('container');
         //ChatGPTからの回答を表示するテキストエリア
         outputText=document.getElementById('output');
+        /***Lesson8:編集開始***/
         //ChatGPTに送信するメッセージ。system:システムの役割、user:指示
         messageArray=[
             {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"},
-            {role: "user", content: "x=0, y=1.5, z=-3の位置に、色が赤、半径が0.5の球を作って。"}
         ];   
+        /***Lesson8:編集終了***/
       }
       //ボタンを押した時の挙動
       async function OnClick() {
@@ -27,7 +28,6 @@
         let prompt = document.getElementById('input').value;
         //プロンプトが空の場合、処理を終了
         if (!prompt){outputText.value="プロンプトを入力してください"; return};
-        /***Lesson7:追加開始***/
         //プロンプトにオプションを追加
         prompt+=
           `上記を実現するA-Frameのa-から始まる要素を生成。ただし下記の条件を満たすこと。
@@ -35,9 +35,10 @@
           - scriptを使用しない。
           - 背景の設定にbackgroundコンポーネントではなくa-sky>を使用。
           - 結果はコードブロックに記述。`; 
-        /***Lesson7:追加終了***/
+        /***Lesson8:編集開始***/
         //ChatGPTに送信するメッセージにプロンプトをセット
-        messageArray[1]={role: "user", content: prompt};
+        messageArray.push({role: "user", content: prompt});
+        /***Lesson8:編集終了***/
         //ChatGPTにメッセージを送信して、回答を取得
         let result = await SendMessage();
         //ChatGPTからの回答をテキストエリアに表示
