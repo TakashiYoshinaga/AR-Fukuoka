@@ -25,6 +25,8 @@
         outputText.value="Waiting for response...";  
         //ChatGPTにメッセージを送信して、回答を取得
         let result = await SendMessage();
+        //ChatGPTからの回答をテキストエリアに表示
+        outputText.value=("[ChatGPTの回答]\n"+result+"\n\n");
         //ChatGPTからの回答からA-Frameのオブジェクトを抽出して、シーンに追加
         result = CreateElements(result); 
       }
