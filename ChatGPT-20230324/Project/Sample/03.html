@@ -23,6 +23,14 @@
       async function OnClick() {
         //ChatGPTからの回答を表示するテキストエリアを初期化
         outputText.value="Waiting for response...";  
+        /***Lesson03: 追加開始***/
+        //テキストエリアからプロンプトを取得
+        let prompt = document.getElementById('input').value;
+        //プロンプトが空の場合、処理を終了
+        if (!prompt){outputText.value="プロンプトを入力してください"; return};
+        //ChatGPTに送信するメッセージにプロンプトをセット
+        messageArray[1]={role: "user", content: prompt};
+        /***Lesson03: 追加終了***/
         //ChatGPTにメッセージを送信して、回答を取得
         let result = await SendMessage();
         //ChatGPTからの回答をテキストエリアに表示
@@ -52,7 +60,6 @@
       let data = await response.json();
       //ChatGPTからの回答を格納する変数
       let result=JSON.stringify(data);
-      /***Lesson2：追加開始***/
       //ChatGPTからレスポンスがあったかどうかを判定
       if(data.choices){
         //ChatGPTからの回答をテキスト形式で取得してresultに格納
@@ -61,7 +68,6 @@
         //ChatGPTからレスポンスがなかった場合、No Responseと返す。
         result="No Response";
       }
-      /***Lesson2：追加終了***/
       return result;
     }
     //ChatGPTからの回答からA-Frameのオブジェクトを抽出して、シーンに追加
