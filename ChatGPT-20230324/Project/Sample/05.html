@@ -35,10 +35,8 @@
         outputText.value=("[ChatGPTの回答]\n"+result+"\n\n");
         //ChatGPTからの回答からA-Frameのオブジェクトを抽出して、シーンに追加
         result = CreateElements(result); 
-        /*** Lesson4:追加開始 ***/
         //ChatGPTからの回答から抽出したA-Frameのオブジェクトをテキストエリアに表示
         outputText.value+=("[抽出された要素]\n"+result);
-        /*** Lesson4:追加終了 ***/
       }
       //ChatGPTにメッセージを送信して、回答を取得
       async function SendMessage() {
@@ -78,6 +76,17 @@
       let generatedElements = FindAframeElements(text);
       //A-Frameのオブジェクトのタグを文字列化してresultに追加(TextAreaでの表示用)
       let result=generatedElements.map(element => element.outerHTML).join("\n");
+      /***Lesson5: 追加開始***/
+      //A-Frameのオブジェクトがある場合はオブジェクトをシーンに追加
+      if(generatedElements.length>0){
+        //A-Frameのオブジェクトを1つずつシーンに追加
+        generatedElements.forEach(element => {
+          elmContainer.appendChild(element); 
+        });
+      }else{
+        result = "No A-Frame primitive element found.\n";
+      }
+      /***Lesson5: 追加終了***/
       return result;
     }
     </script>
