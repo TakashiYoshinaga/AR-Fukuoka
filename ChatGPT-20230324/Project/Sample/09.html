@@ -29,12 +29,14 @@
         //プロンプトが空の場合、処理を終了
         if (!prompt){outputText.value="プロンプトを入力してください"; return};
         //プロンプトにオプションを追加
-        prompt+=
-          `上記を実現するA-Frameのa-から始まる要素を生成。ただし下記の条件を満たすこと。
+        prompt =
+          `下記の指示を実現するA-Frameのa-から始まる要素を生成。ただし下記の条件を満たすこと。
+          条件:"""
           - a-camera,a-assets,a-animation,a-lightは使用しない。
           - scriptを使用しない。
           - 背景の設定にbackgroundコンポーネントではなくa-sky>を使用。
-          - 結果はコードブロックに記述。`; 
+          - 結果は1つのコードブロックに記述。"""
+          指示： """`+prompt+`"""`;
         /***Lesson8:編集開始***/
         //ChatGPTに送信するメッセージにプロンプトをセット
         messageArray.push({role: "user", content: prompt});
