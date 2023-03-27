@@ -1,3 +1,5 @@
+// Copyright (c) Takashi Yoshinaga
+
 function FindAframeElements(text) {
     let generatedElements = [];
     // <a-scene> と </a-scene> タグの間の内容、または全体の内容を抽出する正規表現
