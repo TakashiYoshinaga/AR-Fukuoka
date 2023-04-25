@@ -1,9 +1,5 @@
-//outputText.value="Waiting...";の直下に下記を追加
+//OnClick()内、Createelements(results) の直下に下記を追加
 
 
-        //プロンプトをTexAreaから取得
-        let prompt = document.getElementById('input').value;
-        //promptがない場合
-        if (!prompt){outputText.value="プロンプトを入力してください"; return;}
-        //プロンプトをmessageArrayに追加
-        messageArray[1]={role: "user", content: prompt};
+        //ChatGPTからの回答から抽出したA-Frameのオブジェクトをテキストエリアに表示
+        outputText.value+=("[抽出された要素]\n"+result);
