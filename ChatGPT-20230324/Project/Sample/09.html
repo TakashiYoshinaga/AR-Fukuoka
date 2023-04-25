@@ -16,8 +16,8 @@
         outputText=document.getElementById('output');
         //ChatGPTに送信するメッセージ。system:システムの役割、user:指示
         messageArray=[
-            {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"},
-        ];   
+          {role: "system", content: "あなたA-Frameバージョン1.4.0以降のPrimitive Elementのタグを教えるアシスタントです。"}
+        ]; 
       }
       //ボタンを押した時の挙動
       async function OnClick() {
@@ -108,7 +108,8 @@
           generatedElements.forEach(element => {
             elmContainer.appendChild(element); 
           });
-        }else{
+        }
+        else{
           result = "No A-Frame primitive element found.\n";
         }
         return result;
