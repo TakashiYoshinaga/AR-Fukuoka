@@ -67,7 +67,8 @@
         if(data.choices){
           //ChatGPTからの回答をテキスト形式で取得してresultに格納
           result=data.choices[0].message.content;
-        }else{
+        }
+        else{
           //ChatGPTからレスポンスがなかった場合、No Responseと返す。
           result="No Response";
         }
