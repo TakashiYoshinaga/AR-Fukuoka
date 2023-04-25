@@ -1,5 +1,12 @@
-// let result = await SendMessage();の直下に下記を追加
+// OnClick()内、 outputText.value="Waiting for response..."; 直下に下記を追加
 
 
-        //ChatGPTからの回答からA-Frameの要素を抽出
-        CreateElements(result);
+        //テキストエリアからプロンプトを取得
+        let prompt = document.getElementById('input').value;
+        //プロンプトが空の場合、処理を終了
+        if (!prompt){
+          outputText.value="プロンプトを入力してください";
+          return;
+        }
+        //ChatGPTに送信するメッセージにプロンプトをセット
+        messageArray[1]={role: "user", content: prompt};
