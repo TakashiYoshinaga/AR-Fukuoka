@@ -31,8 +31,9 @@
         prompt =
           `下記の指示を実現するA-Frameのa-から始まる要素を生成。ただし下記の条件を満たすこと。
           条件:"""
-          - a-camera,a-assets,a-animation,a-lightは使用しない。
-          - scriptを使用しない。
+          - a-camera,a-assets,a-lightは使用しない。
+          - scriptを使用しない。          
+          - アニメーションの設定を要求された場合は、<a-animation>ではなくanimationコンポーネントを使用。
           - 背景の設定にbackgroundコンポーネントではなくa-sky>を使用。
           - 結果は1つのコードブロックに記述。"""
           指示： """`+prompt+`"""`;
