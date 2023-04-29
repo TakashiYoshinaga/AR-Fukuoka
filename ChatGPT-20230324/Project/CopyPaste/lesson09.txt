@@ -2,7 +2,7 @@
      
 
           //ChatGPTからの回答をmessagesArrayに追加
-          messageArray.push({role: "assistant", content: text});
+          messageArray.push({role: "assistant", content: result});
           //messagesArrayの要素数が9を超えたら、1番目から2つのメッセージを削除
           if(messageArray.length>9){ 
             messageArray.splice(1,2);
