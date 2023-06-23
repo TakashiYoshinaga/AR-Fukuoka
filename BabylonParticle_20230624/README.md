@@ -1,5 +1,5 @@
 # Babylon.jsではじめるパーティクル表現
-##演習用コード
+## 演習用コード
 ### 1.テンプレートの複製
 ```javascript
 https://glitch.com/~particle-test-simple-base
