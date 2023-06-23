@@ -63,6 +63,17 @@ pipeline.bloomWeight = 1;
 pipeline.bloomKernel = 64;
 pipeline.bloomScale = 0.5;
 ```
+### 6.VR対応
+#### VR初期化コード
+const scene = createScene();とengine.runRenderLoopの間に記述
+```javascript
+initializeXR();
+async function initializeXR(){
+    let xr = await scene.createDefaultXRExperienceAsync(); 
+}
+```
+
+
 <br>
 <br>
 <br>
