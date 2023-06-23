@@ -9,8 +9,8 @@ https://glitch.com/~particle-test-simple-base
 const box = BABYLON.MeshBuilder.CreateBox("box");
 ```
 ### 3.パーティクル1:光
+#### パーティクル発生源になる球を生成
 ```javascript
-//パーティクル発生源になる球を生成
 var sphere = BABYLON.MeshBuilder.CreateSphere("sparkles"); 
 sphere.position = new BABYLON.Vector3(0, 0, 0); 
 ```
