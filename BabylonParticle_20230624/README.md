@@ -30,14 +30,14 @@ particleSystem.start();
 //球を不可視にする
 sphere.isVisible = false;
 ```
-### 2.パーティクル2:雨
+### 4.パーティクル2:雨
 #### パーティクル発生源になる球を生成
 ```javascript
 BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
         set.start();
 });
 ```
-### 2.パーティクル3:炎
+### 5.パーティクル3:炎
 #### レンダーパイプラインを使用する準備
 ```javascript
 var pipeline = new BABYLON.DefaultRenderingPipeline("default", true, scene);
