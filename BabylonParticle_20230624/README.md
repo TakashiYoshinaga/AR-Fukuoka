@@ -45,8 +45,7 @@ var pipeline = new BABYLON.DefaultRenderingPipeline("default", true, scene);
 #### トーンマッピングの設定
 ```javascript
 scene.imageProcessingConfiguration.toneMappingEnabled = true;
-scene.imageProcessingConfiguration.toneMappingType = 
-BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
+scene.imageProcessingConfiguration.toneMappingType =  BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
 scene.imageProcessingConfiguration.exposure = 1;
 ```
 #### 炎のパーティクル
