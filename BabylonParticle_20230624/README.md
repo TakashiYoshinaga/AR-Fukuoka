@@ -14,21 +14,55 @@ const box = BABYLON.MeshBuilder.CreateBox("box");
 var sphere = BABYLON.MeshBuilder.CreateSphere("sparkles"); 
 sphere.position = new BABYLON.Vector3(0, 0, 0); 
 ```
+#### パーティクルの実装
 ```javascript
-//パーティクルの実装
 let particleSystem = new BABYLON.ParticleSystem("sparkles", 1000, scene);
 particleSystem.particleTexture = new BABYLON.Texture("https://cdn.jsdelivr.net/gh/capucat/blendermodels/flwr.png", scene);
 ```
-
+#### パーティクルの開始
 ```javascript
-//パーティクルの開始
 particleSystem.emitter = sphere;
 particleSystem.particleEmitterType = new BABYLON.SphereParticleEmitter();    
 particleSystem.start();
 ```
-
-
-
+#### 最後の一手間
+```javascript
+//球を不可視にする
+sphere.isVisible = false;
+```
+### 2.パーティクル2:雨
+#### パーティクル発生源になる球を生成
+```javascript
+BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
+        set.start();
+});
+```
+### 2.パーティクル3:炎
+#### レンダーパイプラインを使用する準備
+```javascript
+var pipeline = new BABYLON.DefaultRenderingPipeline("default", true, scene);
+```
+#### トーンマッピングの設定
+```javascript
+scene.imageProcessingConfiguration.toneMappingEnabled = true;
+scene.imageProcessingConfiguration.toneMappingType = 
+BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
+scene.imageProcessingConfiguration.exposure = 1;
+```
+#### 炎のパーティクル
+```javascript
+BABYLON.ParticleHelper.CreateAsync("fire", scene).then((set) => {
+    set.start();
+});
+```
+#### ブルーム 
+```javascript
+pipeline.bloomEnabled = true;
+pipeline.bloomThreshold = 0.8;
+pipeline.bloomWeight = 1;
+pipeline.bloomKernel = 64;
+pipeline.bloomScale = 0.5;
+```
 <br>
 <br>
 <br>
