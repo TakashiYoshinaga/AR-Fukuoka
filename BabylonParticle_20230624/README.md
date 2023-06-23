@@ -31,7 +31,7 @@ particleSystem.start();
 sphere.isVisible = false;
 ```
 ### 4.パーティクル2:雨
-#### パーティクル発生源になる球を生成
+#### ParticleHelperを使用
 ```javascript
 BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
         set.start();
