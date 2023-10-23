@@ -1,0 +1,8 @@
+//function addObjects(){ と }の間に下記を追加
+
+
+        //地面を作成(原点の位置確認用。あとで削除してOK)
+        let ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 1, height: 1});       
+ 
+
+

@@ -1,0 +1,6 @@
+//window.onload = function(){ と }の間、engine = new BABYLON.Engine(canvas, true);の下に下記を追加
+
+
+        //カメラやライトの設定を行ったscene(3D空間)を作成
+        createScene();
+

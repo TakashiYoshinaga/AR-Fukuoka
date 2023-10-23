@@ -1,0 +1,9 @@
+//<script src="https://cdn.babylonjs.com/babylon.js"></script>の直下に下記を追加
+
+
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+
+
+
+

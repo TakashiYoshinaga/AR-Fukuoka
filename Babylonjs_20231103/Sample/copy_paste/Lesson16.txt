@@ -1,0 +1,8 @@
+//let glbMesh = container.meshes[1];とscene.addMesh(glbMesh);の間に下記を追加
+
+
+            //スケールを10倍
+            glbMesh.scaling=new BABYLON.Vector3(10,10,10);
+
+
+

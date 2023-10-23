@@ -1,0 +1,8 @@
+//スケールを10倍にするglbMesh.scaling=new BABYLON.Vector3(10,10,10);の直下に下記を追加
+
+
+            //Y軸(=鉛直方向の軸)を中心に180度(=πラジアン)回転
+            glbMesh.rotation =new BABYLON.Vector3(0, Math.PI, 0);
+
+
+

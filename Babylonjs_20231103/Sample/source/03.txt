@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <!--babylon.jsの読み込み-->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <!--実際の処理の実装-->
+    <script type="text/javascript">
+      let canvas; //canvas要素 (描画領域)
+      let engine; //Babylon.jsによる描画機能
+      let scene; //仮想3D空間
+      //ページの読み込み終了後に各種初期化を行う
+      window.onload = function() {
+        //描画領域(canvas要素)をHTMLから取得
+        canvas = document.getElementById("renderCanvas");
+        //Babylon.jsを使ってcanvasに描画する準備 (引数：描画先,アンチエイリアス)
+        engine = new BABYLON.Engine(canvas, true);            
+      }
+      //3D空間の初期化
+      function createScene() {
+        
+      }
+      //WebXRの初期化
+      async function initializeXR(){
+        
+      }
+      //表示オブジェクトの初期化
+      function addObjects(){    
+        
+      }  
+    </script>
+  </head>
+  <body>
+    <!--描画する領域-->
+    <canvas id="renderCanvas" style="width: 100%; height: 100%;"></canvas> 
+  </body>
+</html>

@@ -1,0 +1,12 @@
+//function addObjects(){  と }の間、最後の行にに下記を追加
+
+        //boxに手で掴んで移動できる属性を追加
+        let dragBehavior = new BABYLON.SixDofDragBehavior();
+        //片手での操作のみ受け付ける(両手でのスケールでの挙動がおかしいため)
+        dragBehavior.allowMultiPointer=false;
+        //離れた位置からポインターで操作する場合は位置のみ追従
+        dragBehavior.rotateWithMotionController=false;
+        //上記設定をboxに適用
+        box.addBehavior(dragBehavior);
+
+

@@ -1,0 +1,16 @@
+//async function initializeXR(){と }の間、最後の行にに下記を追加
+
+        //XRモード利用可能か不可かを確認
+        if (!xr.baseExperience) {}
+        else {
+          //利用可能な場合はハンドトラッキングをオンにする 
+          xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
+            xrInput: xr.input
+          });
+        }
+
+
+
+
+
+
