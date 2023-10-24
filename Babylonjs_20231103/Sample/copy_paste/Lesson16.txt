@@ -1,8 +1,16 @@
-//let glbMesh = container.meshes[1];とscene.addMesh(glbMesh);の間に下記を追加
+//let xr = await scene.createDefaultXRExperienceAsync({/*オプション*/});の直下に下記を追加
 
 
-            //スケールを10倍
-            glbMesh.scaling=new BABYLON.Vector3(10,10,10);
+        if (xr.baseExperience) {
+          //カメラの初期位置を調整
+          xr.baseExperience.onStateChangedObservable.add((state)=>{
+            if(state === BABYLON.WebXRState.IN_XR){
+              xr.baseExperience.camera.position.set(0,scene.activeCamera.position.y,-2);
+            }        
+          });    
+        }
+
+
 
 
 

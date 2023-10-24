@@ -1,18 +1,10 @@
-//function addObjects()関数内、 box.addBehavior(dragBehavior);の直下に下記を追加
+//let xr = await scene.createDefaultXRExperienceAsyncのオプションとして下記を追加
 
 
-        //SceneLoaderを使って3Dモデルを読み込む
-        BABYLON.SceneLoader.LoadAssetContainer(
-          "3DモデルのURL", //3Dモデルが置かれたフォルダ or 3DモデルのURL
-          "", //3Dモデルのファイル名。上記でモデルのURLを指定した場合は空でOK
-          scene, //オブジェクトを追加する先のScene 
-          function (container) {
-            //Babylon.jsでは0番目のメッシュはただのroot。1番目にモデルの実体。
-            let glbMesh = container.meshes[1];
-            //scene(3D空間)にオブジェクトを追加
-            scene.addMesh(glbMesh);
-          }
-        );
+            uiOptions: {
+              sessionMode: 'immersive-ar'
+            } 
+
 
 
 
