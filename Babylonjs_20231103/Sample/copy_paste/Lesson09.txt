@@ -8,7 +8,7 @@
         //箱の色をランダムに設定
         let boxMaterial = new BABYLON.StandardMaterial("material");
         boxMaterial.diffuseColor = new BABYLON.Color3(0.0,1.0,1.0);
-        box.material = boxMaterial;  
+        box.material = boxMaterial;
 
 
 

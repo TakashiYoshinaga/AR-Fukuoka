@@ -2,8 +2,3 @@
 
 
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-
-
-
-
-
