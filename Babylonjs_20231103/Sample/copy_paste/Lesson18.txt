@@ -6,6 +6,3 @@
             dragBehavior2.allowMultiPointer=false;
             dragBehavior2.rotateWithMotionController=false;
             glbMesh.addBehavior(dragBehavior2); 
-
-
-

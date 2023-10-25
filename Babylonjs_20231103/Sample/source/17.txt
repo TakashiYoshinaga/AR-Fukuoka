@@ -2,7 +2,7 @@
   <head>
     <!--babylon.jsの読み込み-->
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
-    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>    
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     <!--実際の処理の実装-->
     <script type="text/javascript">
       let canvas; //canvas要素 (描画領域)
@@ -15,17 +15,17 @@
         //Babylon.jsを使ってcanvasに描画する準備 (引数：描画先,アンチエイリアス)
         engine = new BABYLON.Engine(canvas, true);
         //カメラやライトの設定を行ったscene(3D空間)を作成
-        createScene(); 
+        createScene();
         //描画オブジェクトの作成
-        addObjects();     
+        addObjects();
         //XRモードの初期化
-        initializeXR();        
+        initializeXR();
         //毎フレーム描画を更新
         engine.runRenderLoop(function () {
           if (scene && scene.activeCamera) {
             scene.render();
           }
-        });        
+        });
       }
       //3D空間の初期化
       function createScene() {
@@ -38,36 +38,39 @@
         //カメラを作成(引数：名前, alpha, beta, 注視点からの距離, 注視点,追加先) 
         let camera = new BABYLON.ArcRotateCamera("camera", -Math.PI/2,Math.PI/2, 3, new BABYLON.Vector3(0, 0, 0));
         //マウスやキーボードによるカメラ操作を可能にする
-        camera.attachControl(canvas, true);        
+        camera.attachControl(canvas, true);              
       }
       //WebXRの初期化
       async function initializeXR(){
-        let xr = await scene.createDefaultXRExperienceAsync({/*ここでオプションも設定可能*/});
-        //XRモード利用可能か不可かを確認
-        if (!xr.baseExperience) {}
-        else {
-          //利用可能な場合はハンドトラッキングをオンにする 
-          xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
-            xrInput: xr.input
-          });
-        }        
+        let xr = await scene.createDefaultXRExperienceAsync(
+          {
+            /*ここでオプションも設定可能*/
+            uiOptions: {
+              sessionMode: 'immersive-ar'
+            } 
+          }
+        );
+        if (xr.baseExperience) {
+          //カメラの初期位置を調整
+          xr.baseExperience.onStateChangedObservable.add((state)=>{
+            if(state === BABYLON.WebXRState.IN_XR){
+              xr.baseExperience.camera.position.set(0,scene.activeCamera.position.y,-2);
+            }        
+          });    
+        }
       }
       //表示オブジェクトの初期化
       function addObjects(){    
         //地面を作成(原点の位置確認用。あとで削除してOK)
-        let ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 1, height: 1});  
+        let ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 1, height: 1});
         //箱状のオブジェクト作成(30cm)
-        let box = BABYLON.MeshBuilder.CreateBox("box", {width: 0.3, height: 0.3, depth: 0.3});  
-        box.position.x = 0;
+        let box = BABYLON.MeshBuilder.CreateBox("box", {width: 0.3, height: 0.3, depth: 0.3});
+        box.position.x = 0.0;
         box.position.y = 1;
         //箱の色をランダムに設定
         let boxMaterial = new BABYLON.StandardMaterial("material");
-        boxMaterial.diffuseColor = BABYLON.Color3.Random();
-        box.material = boxMaterial; 
-        //8面体を作成
-        let octa = BABYLON.MeshBuilder.CreatePolyhedron("octa", {type:1,size: 0.15}); 
-        octa.position.x=0.5;
-        octa.position.y=1;
+        boxMaterial.diffuseColor = new BABYLON.Color3(0.0,1.0,1.0);
+        box.material = boxMaterial;
         //boxに手で掴んで移動できる属性を追加
         let dragBehavior = new BABYLON.SixDofDragBehavior();
         //片手での操作のみ受け付ける(両手でのスケールでの挙動がおかしいため)
@@ -75,7 +78,8 @@
         //離れた位置からポインターで操作する場合は位置のみ追従
         dragBehavior.rotateWithMotionController=false;
         //上記設定をboxに適用
-        box.addBehavior(dragBehavior); 
+        box.addBehavior(dragBehavior);
+        
         //SceneLoaderを使って3Dモデルを読み込む
         BABYLON.SceneLoader.LoadAssetContainer(
           "https://cdn.glitch.global/d0ecf79e-59af-4280-90df-a28f3efaad3e/figure.glb?v=1675334298545", //3Dモデルが置かれたフォルダ or 3DモデルのURL
@@ -85,13 +89,13 @@
             //Babylon.jsでは0番目のメッシュはただのroot。1番目にモデルの実体。
             let glbMesh = container.meshes[1];
             //スケールを10倍
-            glbMesh.scaling=new BABYLON.Vector3(10,10,10);  
+            glbMesh.scaling=new BABYLON.Vector3(10,10,10);
             //Y軸(=鉛直方向の軸)を中心に180度(=πラジアン)回転
-            glbMesh.rotation =new BABYLON.Vector3(0, Math.PI, 0);            
+            glbMesh.rotation =new BABYLON.Vector3(0, Math.PI, 0);
             //scene(3D空間)にオブジェクトを追加
             scene.addMesh(glbMesh);
           }
-        );        
+        );
       }  
     </script>
   </head>
