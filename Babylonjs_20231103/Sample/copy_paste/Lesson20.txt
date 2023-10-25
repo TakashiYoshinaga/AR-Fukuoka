@@ -1,0 +1,20 @@
+//if (xr.baseExperience) { }の最後の行(ハンドトラッキングをオンにするコードの次)に下記を追加
+
+
+          if(xrHandFeature){
+            let rotationSpeed = 0.01;
+            let box=scene.getMeshByName("box");
+            //描画する直前に毎フレーム行う処理
+            scene.registerBeforeRender(function () {
+              let rightHand = xrHandFeature.getHandByHandedness("right");
+              let leftHand = xrHandFeature.getHandByHandedness("left");
+              if(rightHand && leftHand){
+                var indexR=rightHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
+                var indexL=leftHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
+                var length=BABYLON.Vector3.Distance(indexR,indexL);
+                if(length<0.02){
+                  box.rotation=new BABYLON.Vector3(0,box.rotation.y+rotationSpeed,0);
+                }
+              }
+            });
+           }

@@ -1,0 +1,7 @@
+//if (xr.baseExperience) { }の最後の行(カメラの初期位置調整コードの次の行)に下記を追加
+
+
+          //利用可能な場合はハンドトラッキングをオンにする 
+          let xrHandFeature=xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
+            xrInput: xr.input
+          });
