@@ -56,7 +56,7 @@
         let box = BABYLON.MeshBuilder.CreateBox("box", {width: 0.3, height: 0.3, depth: 0.3});
         box.position.x = 0.0;
         box.position.y = 1;
-        //箱の色をランダムに設定
+        //箱の色をシアンに設定
         let boxMaterial = new BABYLON.StandardMaterial("material");
         boxMaterial.diffuseColor = new BABYLON.Color3(0.0,1.0,1.0);
         box.material = boxMaterial;

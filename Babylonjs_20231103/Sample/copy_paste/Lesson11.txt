@@ -1,4 +1,4 @@
-//function addObjects()関数内、 box.addBehavior(dragBehavior);の直下に下記を追加
+//function addObjects()関数内、 box.material = boxMaterial;の直下に下記を追加
 
 
         //SceneLoaderを使って3Dモデルを読み込む

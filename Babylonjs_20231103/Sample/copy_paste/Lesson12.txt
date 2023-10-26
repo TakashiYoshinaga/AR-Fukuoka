@@ -3,6 +3,3 @@
 
             //スケールを10倍
             glbMesh.scaling=new BABYLON.Vector3(10,10,10);
-
-
-

@@ -12,7 +12,7 @@
         //描画領域(canvas要素)をHTMLから取得
         canvas = document.getElementById("renderCanvas");
         //Babylon.jsを使ってcanvasに描画する準備 (引数：描画先,アンチエイリアス)
-        engine = new BABYLON.Engine(canvas, true);   
+        engine = new BABYLON.Engine(canvas, true);
         //カメラやライトの設定を行ったscene(3D空間)を作成
         createScene();
         //描画オブジェクトの作成

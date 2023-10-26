@@ -1,4 +1,4 @@
-//オブジェクトを回転させたglbMesh.rotation =new BABYLON.Vector3(0, Math.PI, 0);の直下に下記を追加
+//オブジェクトを回転させるコードのglbMesh.rotation =new BABYLON.Vector3(0, Math.PI, 0);の直下に下記を追加
 
 
             //読み込んだオブジェクト用にマニピュレーションの挙動を作成
