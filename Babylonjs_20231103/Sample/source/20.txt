@@ -56,29 +56,27 @@
             if(state === BABYLON.WebXRState.IN_XR){
               xr.baseExperience.camera.position.set(0,scene.activeCamera.position.y,-2);
             }        
-          });  
+          });
           //利用可能な場合はハンドトラッキングをオンにする 
           let xrHandFeature=xr.baseExperience.featuresManager.enableFeature(BABYLON.WebXRFeatureName.HAND_TRACKING, "latest", {
             xrInput: xr.input
           });
-          
           if(xrHandFeature){
-            let rotationSpeed = 0.01;
             let box=scene.getMeshByName("box");
             //描画する直前に毎フレーム行う処理
             scene.registerBeforeRender(function () {
               let rightHand = xrHandFeature.getHandByHandedness("right");
               let leftHand = xrHandFeature.getHandByHandedness("left");
               if(rightHand && leftHand){
-                var indexR=rightHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
-                var indexL=leftHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
-                var length=BABYLON.Vector3.Distance(indexR,indexL);
+                let indexR=rightHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
+                let indexL=leftHand.getJointMesh(BABYLON.WebXRHandJoint.INDEX_FINGER_TIP).position;
+                let length=BABYLON.Vector3.Distance(indexR,indexL);
                 if(length<0.02){
-                  box.rotation=new BABYLON.Vector3(0,box.rotation.y+rotationSpeed,0);
+                  box.rotation=new BABYLON.Vector3(0,box.rotation.y+0.01,0);
                 }
               }
             });
-           }          
+           }
         }
       }
       //表示オブジェクトの初期化
@@ -89,7 +87,7 @@
         let box = BABYLON.MeshBuilder.CreateBox("box", {width: 0.3, height: 0.3, depth: 0.3});
         box.position.x = 0.0;
         box.position.y = 1;
-        //箱の色をランダムに設定
+        //箱の色をシアンに設定
         let boxMaterial = new BABYLON.StandardMaterial("material");
         boxMaterial.diffuseColor = new BABYLON.Color3(0.0,1.0,1.0);
         box.material = boxMaterial;
