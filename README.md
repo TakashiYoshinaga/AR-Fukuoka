@@ -6,7 +6,7 @@
 zipファイルをデスクトップなどの分かり易い場所に解凍しておいてください。
 <br><br>
 ■Glitch<br>
-[https://chat.openai.com/](https://glitch.com)
+[https://glitch.com](https://glitch.com)
 <br>
 <br>
 <br>
