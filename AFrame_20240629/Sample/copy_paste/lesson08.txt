@@ -3,4 +3,4 @@
       <a-assets>
         <a-asset-item id="cat" src="オブジェクトのURL"></a-asset-item>
       </a-assets>
-      <a-entity grabbable position="0 1.35 -0.5" scale="10 10 10" gltf-model="#cat"></a-entity>
+      <a-entity grabbable position="0 1.35 -0.5" scale="10 10 10" gltf-model="#cat"> </a-entity>
