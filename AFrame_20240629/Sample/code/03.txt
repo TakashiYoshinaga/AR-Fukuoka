@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sphere position="0 1.25 -5" radius="1.25" src="https://cdn.glitch.global/5e5e1a72-1514-491a-bdb4-05012bb88689/earth.jpg?v=1717805623637"></a-sphere>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

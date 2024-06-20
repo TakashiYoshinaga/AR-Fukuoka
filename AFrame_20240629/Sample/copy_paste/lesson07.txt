@@ -1,0 +1,12 @@
+//作業①
+//a-sceneにxr-mode-ui = "XRMode: xr"を追加もしくはa-sceneの開始タグを下記に差し替え
+
+
+    <a-scene xr-mode-ui = "XRMode: xr" >
+
+
+
+//作業②
+//a-skyにhide-on-enter-arコンポーネントを追加またはa-skyタグを下記に差し替え
+
+      <a-sky hide-on-enter-ar src="https://cdn.glitch.global/5e5e1a72-1514-491a-bdb4-05012bb88689/space.jpg?v=1717806027764"></a-sky>

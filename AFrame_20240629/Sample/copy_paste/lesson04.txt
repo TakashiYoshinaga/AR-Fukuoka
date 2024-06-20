@@ -1,0 +1,4 @@
+//資料の通りの操作でOK。うまくいかない場合は<a-sky></a-sky>の記述を下記に差し替え
+
+
+      <a-sky src="https://cdn.glitch.global/5e5e1a72-1514-491a-bdb4-05012bb88689/space.jpg?v=1717806027764"></a-sky>

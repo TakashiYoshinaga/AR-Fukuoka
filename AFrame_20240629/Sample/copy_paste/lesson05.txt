@@ -1,0 +1,11 @@
+//作業①
+//<a-sky src = "画像のURL"></a-sky>の前の行あたりに下記を追加 (a-sceneないならどこでもOK)
+
+      <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
+      <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>
+      
+
+//作業②
+//a-sphereにgrabbableコンポーネントを追加
+
+      <a-sphere grabbable position="0 1.25 -5" radius="1.25" src="https://cdn.glitch.global/5e5e1a72-1514-491a-bdb4-05012bb88689/earth.jpg?v=1717805623637"></a-sphere>

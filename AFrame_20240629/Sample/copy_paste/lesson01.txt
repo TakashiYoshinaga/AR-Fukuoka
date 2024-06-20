@@ -1,0 +1,4 @@
+//<a-scene>と</a-scene>の間に下記を追加
+
+
+<a-entity position="0 1.5 -2" scale="5 5 5" text="value:tryAR; align:center"></a-entity> 

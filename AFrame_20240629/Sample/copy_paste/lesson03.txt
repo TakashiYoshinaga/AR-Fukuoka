@@ -1,0 +1,4 @@
+//資料の通りの操作でOK。うまくいかない場合は<a-sphere></a-sphere>の記述を下記に差し替え
+
+
+      <a-sphere position="0 1.25 -5" radius="1.25" src="https://cdn.glitch.global/5e5e1a72-1514-491a-bdb4-05012bb88689/earth.jpg?v=1717805623637"></a-sphere>
